@@ -8,6 +8,7 @@
   --clr-neutral-grey-400: hsl(212, 6%, 44%);
   --clr-neutral-white: hsl(0, 0%, 100%);
   --clr-card-shadow: hsla(210, 20%, 51%, 0.311);
+  --clr-site-bg: hsl(0, 0%, 98%);
 
   /* Typography */
   --ff-body: "Poppins", sans-serif;
@@ -22,7 +23,7 @@ body {
   font-size: var(--fs-body);
   font-weight: var(--fw-regular);
   color: var(--clr-neutral-grey-500);
-  background-color: var(--clr-neutral-white);
+  background-color: var(--clr-site-bg);
 }
 
 #root {
