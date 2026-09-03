@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="footer">
-      Challenge by
+      Challenge by{""}
       <a
         href="https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK"
         target="_blank"

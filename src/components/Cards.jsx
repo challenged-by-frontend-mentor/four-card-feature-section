@@ -9,7 +9,7 @@ const CARD_DATA = [
     icon: IconSupervisor,
     title: "Supervisor",
     description: "Monitors activity to identify project roadblocks",
-    theme: "mint",
+    theme: "cyan",
   },
   {
     id: 2,
