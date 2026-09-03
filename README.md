@@ -1,23 +1,25 @@
 # Frontend Mentor - Four card feature section solution
 
+![](.reference/preview.jpg)
+
 This is a solution to the [Four card feature section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/four-card-feature-section-weK1eFYK). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+- [Frontend Mentor - Four card feature section solution](#frontend-mentor---four-card-feature-section-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+    - [AI Collaboration](#ai-collaboration)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -29,93 +31,104 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+<details>
+  <summary>Mobile view</summary>
+  <img src='screenshots/mobile-view.png' alt='Four card feature section challenge - Mobile view' width='375px'>
+</details>
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+<details>
+  <summary>Desktop view</summary>
+  <img src='screenshots/desktop-view.png' alt='Four card feature section challenge - Desktop view'>
+</details>
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Four card feature section with React, BEM CSS, and CSS Grid](https://www.frontendmentor.io/solutions/four-card-feature-section-page-with-react-sass-and-grid-component-lbOi_UHBXY)
+- Live Site URL: [Frontend Mentor | Four card feature section](https://challenged-by-frontend-mentor.github.io/four-card-feature-section/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Semantic HTML5 markup](https://developer.mozilla.org/en-US/docs/Glossary/Semantics) - Using `<main>`, `<header>`, `<section>`, `<article>`, and `<footer>` elements
+- [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) - For managing design tokens (colors and typography)
+- [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) - Used for header centering and card internal layouts
+- [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) - Utilizing `grid-template-areas` for clean 4-card desktop placement
+- [Mobile-first workflow](https://developer.mozilla.org/en-US/docs/Meaning_of_mobile_first) - Responsive design starting from mobile screens
+- [BEM Methodology](https://getbem.com/) - Block Element Modifier class naming strategy
+- [React](https://react.dev/) - JS library for component-based UI
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Working on this challenge helped me refine both my CSS architecture and accessibility standards:
 
-To see how you can add code snippets, see below:
+1. **CSS Grid Areas for Unique Layouts:** Using `grid-template-areas` made creating the asymmetric 3-column "four card" desktop layout significantly cleaner than using complex floating or flex math.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+2. **Accessible Decorative Media:** Ensured that decorative SVG icons inside cards do not clutter Screen Readers by combining empty `alt=""` attributes with `aria-hidden="true"`.
+
+3. **Clean Page Root Architecture:** Refactored top-level layout styles to target the `#root` element instead of `:root`, keeping the DOM tree flat and maintaining a proper React component wrapper structure.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+/* Clean layout area distribution using grid-template-areas */
+.feature-cards {
+  display: grid;
+  grid-template-areas:
+    "cyan"
+    "red"
+    "orange"
+    "blue";
+  gap: 32px;
+
+  @media (min-width: 1024px) {
+    max-width: 1116px;
+    grid-template-areas:
+      "cyan red blue"
+      "cyan red blue"
+      "cyan orange blue"
+      "cyan orange blue";
+  }
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In future projects and updates, I plan to focus on:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Advanced Fluid Typography & Spacing**: Continuing to practice finding the ideal balance between fixed pixel values and fluid units like clamp() across diverse breakpoints.
+
+- **Micro-interactions**: Adding subtle entry animations or hover transitions to make the cards feel more interactive.
+
+- **Expanded Accessibility Testing**: Testing with real Screen Readers (such as VoiceOver or NVDA) to verify landmark clarity and heading navigation flow.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Clamp Calculator](https://clampcalculator.com/) - Essential utility for calculating fluid CSS clamp() values cleanly.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Atmos RGB to HSL Converter](https://atmos.style/color-converter/rgb-to-hsl) - Handy converter for managing consistent HSL color variables in CSS.
 
 ### AI Collaboration
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
+Throughout this project, I collaborated with Google Gemini and Google Search AI Mode as technical reviewers:
 
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+- **Code Auditing & Accessibility**: Used AI to review Semantic HTML hierarchy, verify WCAG accessibility guidelines (`aria-hidden`, landmark labels), and ensure proper BEM class naming.
 
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+- **Architecture Validation**: Verified React container structure and CSS Grid layout strategies to ensure code cleanliness.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- GitHub: [Kairung Vangmanaw](https://github.com/VangmanawKairung)
+- Frontend Mentor - [@VangmanawKairung](https://www.frontendmentor.io/profile/VangmanawKairung)
 
 ## Acknowledgments
+I would like to express my sincere gratitude to:
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+- **Myself**: For pushing through challenges, staying dedicated to continuous learning, and never giving up.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- **My Family**: For their constant support and encouragement throughout my journey.
+
+- **Frontend Mentor**: For creating well-designed, realistic challenges that help developers sharpen real-world skills.
+
+- **Native Developer Utilities**: Special thanks to macOS Preview—inspecting design mockups directly to extract exact pixel measurements allowed me to build the layout much faster and avoid unnecessary trial and error.
+
+- **Tools & Ecosystem**: Thanks to VS Code, Git, GitHub, and Google for providing free, powerful AI tools like Gemini that make learning and building modern web applications smoother.
